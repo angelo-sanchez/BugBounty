@@ -16,7 +16,7 @@ public class CurrentUserService {
 	private User current;
 
 	public User getCurrent() {
-		if (current != null)
+		if (current == null)
 			current = new User();
 		return current;
 	}
