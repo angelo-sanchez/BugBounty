@@ -15,7 +15,7 @@ public class CurrentUserService {
 
 	private User current;
 
-	public User getCurrent() {
+	public synchronized User getCurrent() {
 		if (current == null)
 			current = new User();
 		return current;
