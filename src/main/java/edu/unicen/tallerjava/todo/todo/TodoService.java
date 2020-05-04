@@ -79,6 +79,7 @@ public class TodoService {
         ToDo nuevo = new ToDo();
         nuevo.setUser(currentSvc.getCurrent());
         nuevo.setId(UUID.randomUUID());
+        nuevo.setContent(content);
         addTODO(nuevo);
         return nuevo;
     }
