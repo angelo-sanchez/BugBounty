@@ -35,7 +35,23 @@ public class User {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (!(obj instanceof User)) {
+			return false;
+		}
+		User other = (User) obj;
+		return this.getId().equals(other.getId()) && this.getName().equals(other.getName());
+	}
+
+	@Override
+	public int hashCode() {
+		int idHash = (id == null) ? 0 : id.hashCode();
+		int nameHash = (name == null) ? 0 : name.hashCode();
+		return 17 * idHash * nameHash;
+	}
 }
