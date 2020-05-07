@@ -37,7 +37,9 @@ public class UserService {
         return result;
     }
 
-    public User addUser(User user) {
+    public User addUser(User user) throws IllegalArgumentException {
+		if(user == null)
+			throw new IllegalArgumentException("Debe especificar un usuario");
         logSvc.addLog("Se agregó el usuario " + user.getName(), user);
         return this.repo.save(user);
     }
